@@ -23,8 +23,8 @@ arucoDict = aruco.getPredefinedDictionary(aruco.DICT_4X4_250)
 charucoBoard = aruco.CharucoBoard(
                                          (blocksx, blocksy), # Number of markers in X,Y coordinate system
                                          desired_block_size_mm, # Size of a square in mm
-                                         desired_aurco_size_mm, #size of Aruco marker
-                                         aurcoDict) 
+                                         desired_aruco_size_mm, #size of Aruco marker
+                                         arucoDict) 
  
  
 blocksx2 = (A4_shape[0]+desired_gap_size_mm)//(desired_block_size_mm+desired_gap_size_mm)
@@ -34,4 +34,4 @@ arucoBoard = aruco.GridBoard(
                               (blocksx2, blocksy2), # Number of markers in (X, Y)
                               desired_block_size_mm, #Marker size
                               desired_gap_size_mm,  #marker gap size
-                              aurcoDict)
+                              arucoDict)
