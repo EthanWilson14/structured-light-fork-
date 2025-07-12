@@ -44,8 +44,8 @@ for dirnum in directories_to_use:
     # load Gray code decoded images and validity maps
     validV = cv2.imread(path+"out_InvalidImageV.tiff", cv2.IMREAD_GRAYSCALE)
     validH = cv2.imread(path+"out_InvalidImageH.tiff", cv2.IMREAD_GRAYSCALE)
-    coordsV = cv2.imread(path+"out_BinImageH.tiff", cv2.IMREAD_ANYDEPTH+cv2.IMREAD_GRAYSCALE)
-    coordsH = cv2.imread(path+"out_BinImageV.tiff", cv2.IMREAD_ANYDEPTH+cv2.IMREAD_GRAYSCALE)
+    coordsV = cv2.imread(path+"out_BinImageV.tiff", cv2.IMREAD_ANYDEPTH+cv2.IMREAD_GRAYSCALE)
+    coordsH = cv2.imread(path+"out_BinImageH.tiff", cv2.IMREAD_ANYDEPTH+cv2.IMREAD_GRAYSCALE)
 
     # detect Aruco markers
     corners, ids, rejected = aruco.detectMarkers(img, BoardInfo.arucoDict)
@@ -69,7 +69,7 @@ for dirnum in directories_to_use:
     cv2.imwrite(outPath+"DetectedCorners.png", cimg)
 
     # get corresponding projector and filtered camera cordinates
-    valid_points, new_points_cam, new_points_projector = getCameraCoordinates(img, validV, validH, coordsV, coordsH, charucoCorners)
+    valid_points, new_points_cam, new_points_projector = getCameraCoordinates(img, validV, validH, coordsH, coordsV, charucoCorners)
     charucoIds = charucoIds[valid_points]
 
     if charucoIds is None:
